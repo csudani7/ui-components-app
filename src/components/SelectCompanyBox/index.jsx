@@ -11,7 +11,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 export default function SelectCompanyBox() {
   const [tagValue, setTagValue] = React.useState([]);
   const optionData = topCompanies.map((option) => {
-    const company = option.name;
+    const company = option.CompanyName;
     return {
       matchPattern: company.includes("Sector") ? "SECTOR" : "COMPANY",
       ...option,
@@ -20,10 +20,12 @@ export default function SelectCompanyBox() {
   const [options, setOptions] = React.useState(optionData);
 
   const handleDelete = (e) => {
-    setTagValue((tags) => tags.filter((chip) => chip.key !== e.key));
+    setTagValue((tags) =>
+      tags.filter((chip) => chip.CompanyId !== e.CompanyId)
+    );
     const sectionData = [e, ...options];
     const newOptions = sectionData.map((option) => {
-      const company = option.name;
+      const company = option.CompanyName;
       return {
         matchPattern: company.includes("Sector") ? "SECTOR" : "COMPANY",
         ...option,
@@ -36,17 +38,17 @@ export default function SelectCompanyBox() {
     setTagValue(newValue);
     let filterData;
     newValue.forEach((element) => {
-      filterData = options.filter((op) => op.key !== element.key);
+      filterData = options.filter((op) => op.CompanyId !== element.CompanyId);
     });
     setOptions(filterData);
   };
 
   return (
-    <div>
+    <div style={{ paddingTop: "7px" }}>
       <Autocomplete
         id="SelectCompanyBox"
         multiple
-        limitTags={2}
+        limitTags={3}
         value={tagValue}
         style={{ width: 400 }}
         disableClearable
@@ -55,7 +57,7 @@ export default function SelectCompanyBox() {
           ?.sort((a, b) => -b.matchPattern.localeCompare(a.matchPattern))}
         onChange={(e, newValue) => handleChange(e, newValue)}
         groupBy={(option) => option.matchPattern}
-        getOptionLabel={(option) => option.name}
+        getOptionLabel={(option) => option.CompanyName}
         popupIcon={<ExpandMoreIcon />}
         renderInput={(params) => (
           <TextField
@@ -66,8 +68,8 @@ export default function SelectCompanyBox() {
           />
         )}
         renderOption={(option, { inputValue }) => {
-          const matches = match(option.name, inputValue);
-          const parts = parse(option.name, matches);
+          const matches = match(option.CompanyName, inputValue);
+          const parts = parse(option.CompanyName, matches);
           return (
             <div style={{ fontFamily: "Montserrat", fontSize: "14px" }}>
               {parts.map((part, index) => (
@@ -85,7 +87,7 @@ export default function SelectCompanyBox() {
           value.map((option, index) => (
             <Chip
               key={index}
-              label={option.name}
+              label={option.DisplayName}
               onDelete={() => handleDelete(option)}
               deleteIcon={<CloseIcon style={{ height: 16, width: 16 }} />}
               style={{
@@ -102,75 +104,99 @@ export default function SelectCompanyBox() {
 
 // data from API response
 const topCompanies = [
-  { key: 0, name: "Reliance Industries", sectorCompany: [] },
-  { key: 1, name: "Tata Consultancy Services", sectorCompany: [] },
-  { key: 2, name: "Hindustan Unilever", sectorCompany: [] },
-  { key: 3, name: "Infosys", sectorCompany: [] },
+  { CompanyId: 0, CompanyName: "Reliance Industries", DisplayName: "RELIANCE" },
   {
-    key: 4,
-    name: "Asset Management Sector",
-    sectorCompany: [
-      { key: 4, name: "Asset Management Sector 1" },
-      { key: 4, name: "Asset Management Sector 2" },
-    ],
+    CompanyId: 1,
+    CompanyName: "Tata Consultancy Services",
+    DisplayName: "TCS",
   },
   {
-    key: 5,
-    name: "Hotels & Hospitality Sector",
-    sectorCompany: [{ key: 5, name: "Hotels & Hospitality Sector 1" }],
+    CompanyId: 2,
+    CompanyName: "Hindustan Unilever",
+    DisplayName: "HINDUNILVR",
+  },
+  { CompanyId: 3, CompanyName: "Infosys", DisplayName: "INFY" },
+  {
+    CompanyId: 4,
+    CompanyName: "Asset Management Sector",
+    DisplayName: "AMGMTSECTOR",
   },
   {
-    key: 6,
-    name: "Oil Refining Sector",
-    sectorCompany: [
-      { key: 6, name: "Oil Refining Sector 1" },
-      { key: 6, name: "Oil Refining Sector 2" },
-      { key: 6, name: "Oil Refining Sector 3" },
-    ],
+    CompanyId: 5,
+    CompanyName: "Hotels & Hospitality Sector",
+    DisplayName: "HHSM",
   },
   {
-    key: 7,
-    name: "Chemical Sector",
-    sectorCompany: [{ key: 7, name: "Chemical Sector 1" }],
+    CompanyId: 6,
+    CompanyName: "Oil Refining Sector",
+    DisplayName: "ORS",
   },
   {
-    key: 8,
-    name: "Hospital Sector",
-    sectorCompany: [
-      { key: 8, name: "Hospital Sector 1" },
-      { key: 8, name: "Hospital Sector 2" },
-    ],
+    CompanyId: 7,
+    CompanyName: "Chemical Sector",
+    DisplayName: "CS",
   },
   {
-    key: 9,
-    name: "Automobile Sector",
-    sectorCompany: [
-      { key: 9, name: "Automobile Sector 1" },
-      { key: 9, name: "Automobile Sector 2" },
-    ],
+    CompanyId: 8,
+    CompanyName: "Hospital Sector",
+    DisplayName: "HS",
   },
-  { key: 10, name: "ICICI Bank Ltd.", sectorCompany: [] },
+  { CompanyId: 10, CompanyName: "ICICI Bank Ltd.", DisplayName: "ICICIBANK" },
   {
-    key: 11,
-    name: "Housing & Urban Development Corporation Ltd.",
-    sectorCompany: [],
+    CompanyId: 11,
+    CompanyName: "Housing & Urban Development Corporation Ltd.",
+    DisplayName: "HDFC",
   },
   {
-    key: 12,
-    name: "Dewan Housing Finance Corporation Ltd.",
-    sectorCompany: [],
+    CompanyId: 12,
+    CompanyName: "Dewan Housing Finance Corporation Ltd.",
+    DisplayName: "DHFCL",
   },
-  { key: 13, name: "KPIT Technologies Ltd.", sectorCompany: [] },
-  { key: 14, name: "Maheshwari Logistics Ltd.", sectorCompany: [] },
-  { key: 15, name: "Vishwaraj Sugar Industries Ltd.", sectorCompany: [] },
-  { key: 16, name: "Hindustan Construction Company Ltd.", sectorCompany: [] },
-  { key: 17, name: "Dhanada Corporation Ltd.", sectorCompany: [] },
-  { key: 14, name: "Maheshwari Logistics Ltd.", sectorCompany: [] },
-  { key: 15, name: "Vishwaraj Sugar Industries Ltd.", sectorCompany: [] },
-  { key: 16, name: "Hindustan Construction Company Ltd.", sectorCompany: [] },
-  { key: 17, name: "Dhanada Corporation Ltd.", sectorCompany: [] },
-  { key: 14, name: "Maheshwari Logistics Ltd.", sectorCompany: [] },
-  { key: 15, name: "Vishwaraj Sugar Industries Ltd.", sectorCompany: [] },
-  { key: 16, name: "Hindustan Construction Company Ltd.", sectorCompany: [] },
-  { key: 17, name: "Dhanada Corporation Ltd.", sectorCompany: [] },
+  {
+    CompanyId: 13,
+    CompanyName: "KPIT Technologies Ltd.",
+    DisplayName: "KPITTL",
+  },
+  {
+    CompanyId: 14,
+    CompanyName: "Maheshwari Logistics Ltd.",
+    DisplayName: "MLT",
+  },
+  {
+    CompanyId: 15,
+    CompanyName: "Vishwaraj Sugar Industries Ltd.",
+    DisplayName: "VSIL",
+  },
+  {
+    CompanyId: 16,
+    CompanyName: "Hindustan Construction Company Ltd.",
+    DisplayName: "HCL",
+  },
+  {
+    CompanyId: 17,
+    CompanyName: "Dhanada Corporation Ltd.",
+    DisplayName: "DCL",
+  },
+  {
+    CompanyId: 15,
+    CompanyName: "Vishwaraj Sugar Industries Ltd.",
+    DisplayName: "VSIL",
+  },
+  {
+    CompanyId: 16,
+    CompanyName: "State Bank Of India",
+    DisplayName: "SBIN",
+  },
+  {
+    CompanyId: 17,
+    CompanyName: "Nestle India",
+    DisplayName: "NESTLEIND",
+  },
+  { CompanyId: 18, CompanyName: "Axis Bank", DisplayName: "AXISBANK" },
+  {
+    CompanyId: 19,
+    CompanyName: "Avenue Supermarts",
+    DisplayName: "DMART",
+  },
+  { CompanyId: 20, CompanyName: "Larsen & Toubro", DisplayName: "LT" },
 ];

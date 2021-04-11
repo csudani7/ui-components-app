@@ -82,7 +82,7 @@ export default function DatePickerComponent() {
         <RangePicker
           id="rangePicker"
           className="rangeStyle w-100"
-          size="large"
+          size="small"
           picker="month"
           value={defaultDateValues}
           suffixIcon={null}
@@ -90,12 +90,17 @@ export default function DatePickerComponent() {
             console.log(dateMoment, "", dateString)
           }
           allowClear={false}
+          style={{ height: 42 }}
         />
-
         <Dropdown overlay={menu} trigger={["click"]} placement="bottomRight">
           <span> {calenderIcon}</span>
         </Dropdown>
-        <Button className="search-button" variant="contained" color="primary">
+        <Button
+          className="search-button"
+          variant="contained"
+          color="primary"
+          size="small"
+        >
           Search
         </Button>
       </div>

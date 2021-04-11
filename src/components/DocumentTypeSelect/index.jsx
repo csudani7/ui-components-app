@@ -25,7 +25,7 @@ export default function DocumentTypeSelect() {
         disableCloseOnSelect
         getOptionLabel={(option) => option.ticker}
         renderOption={(option, { selected }) => (
-          <React.Fragment>
+          <>          
             <Checkbox
               icon={icon}
               checkedIcon={checkedIcon}
@@ -33,7 +33,7 @@ export default function DocumentTypeSelect() {
               checked={selected}
             />
             {option.name}
-          </React.Fragment>
+          </>
         )}
         renderTags={(value) =>
           value.map((option, index) => (

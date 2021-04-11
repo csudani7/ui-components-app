@@ -17,12 +17,19 @@ hr {
   margin: 0;
 }
 .ant-dropdown-trigger {
-  padding: 10px;
+  padding: 7px;
+  position: absolute;
+  right: 255px;
+  top: 72px;
 }
 .root-date-picker {
   display: flex;
-  padding-top: 14px;
+  padding-top: 26px;
 }
 .root-date-picker button {
   margin-left: 20px;
+}
+.ant-picker {
+  border: 1px solid #969fa8 !important;
+  border-radius: 4px !important;
 }

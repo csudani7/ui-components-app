@@ -1,9 +1,13 @@
-#DocumentTypeSelect-popup
-  .MuiPaper-root
-  .MuiAutocomplete-paper
-  .MuiPaper-elevation1
-  .MuiPaper-rounded
-  .MuiAutocomplete-listbox
-  .MuiAutocomplete-option[aria-selected="true"] {
+#DocumentTypeSelect-popup .MuiAutocomplete-option[aria-selected="true"] {
   background-color: #ffff !important;
+}
+.MuiAutocomplete-option,
+.MuiAutocomplete-option[data-focus="true"],
+.MuiAutocomplete-option[aria-selected="true"] {
+  background-color: #ffff !important;
+}
+.PrivateNotchedOutline-root-1 .MuiOutlinedInput-notchedOutline {
+  border: 1px solid #969fa8 !important;
+  border-radius: 4px !important;
+  border-color: #969fa8 !important;
 }
