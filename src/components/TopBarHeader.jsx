@@ -1,14 +1,16 @@
 import React from "react";
 import SearchInputBox from "./SearchInputBox";
 import DocumentTypeSelect from "./DocumentTypeSelect";
-import DatePicker from "./DatePicker";
+import DatePickerComponent from "./DatePickerComponent";
+import SelectCompanyBox from "./SelectCompanyBox";
 
-export default function TopBarComponent() {
+export default function TopBarHeader() {
   return (
     <div>
       <SearchInputBox />
       <DocumentTypeSelect />
-      <DatePicker />
+      <DatePickerComponent />
+      <SelectCompanyBox />
     </div>
   );
 }
