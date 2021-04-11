@@ -1,0 +1,19 @@
+.ant-select-show-arrow{
+    width: 100px!important;
+}
+
+.selectData Option {
+    border-bottom: 1px solid black;
+    /* opacity: 20%;
+    margin: 0; */
+}
+
+.ant-select {
+    width: 180px!important;
+}
+.ant-select-dropdown {
+    min-width: 180px!important;
+}
+hr {
+    opacity: 20%;
+  }
