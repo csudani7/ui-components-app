@@ -1,0 +1,18 @@
+.anticon-close-circle svg {
+    height: 21px;
+    width: 20px;
+}
+.rangeStyle{
+    border: 1px solid #969FA8;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+.ant-dropdown-menu{
+    margin: 10px 20px 0px 0px!important;
+    width: 100%;
+}
+hr{
+    opacity: 20%;
+    margin: 0;
+}
