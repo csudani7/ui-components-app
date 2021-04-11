@@ -3,7 +3,7 @@ import SearchInputBox from "./SearchInputBox";
 import DocumentTypeSelect from "./DocumentTypeSelect";
 import DatePicker from "./DatePicker";
 
-export default function HeaderBar() {
+export default function TopBarComponent() {
   return (
     <div>
       <SearchInputBox />

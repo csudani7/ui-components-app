@@ -1,9 +1,9 @@
-import HeaderBar from "./components/HeaderBar";
+import TopBarComponent from "./components/TopBarComponent";
 
 function App() {
   return (
     <div>
-      <HeaderBar />
+      <TopBarComponent />
     </div>
   );
 }
