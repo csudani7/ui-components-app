@@ -1,0 +1,9 @@
+#DocumentTypeSelect-popup
+  .MuiPaper-root
+  .MuiAutocomplete-paper
+  .MuiPaper-elevation1
+  .MuiPaper-rounded
+  .MuiAutocomplete-listbox
+  .MuiAutocomplete-option[aria-selected="true"] {
+  background-color: #ffff !important;
+}

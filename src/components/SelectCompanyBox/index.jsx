@@ -32,11 +32,6 @@ export default function SelectCompanyBox() {
     setOptions(newOptions);
   };
 
-  const handleClearAll = () => {
-    setTagValue([]);
-    setOptions(optionData);
-  };
-
   const handleChange = (e, newValue) => {
     setTagValue(newValue);
     let filterData;
@@ -48,11 +43,10 @@ export default function SelectCompanyBox() {
 
   return (
     <div>
-      <p>Companies Or Sectors</p>
       <Autocomplete
-        id="grouped-demo"
+        id="SelectCompanyBox"
         multiple
-        style={{ height: "20px", outlineColor: "red" }}
+        limitTags={2}
         value={tagValue}
         disableClearable
         options={options
@@ -86,41 +80,21 @@ export default function SelectCompanyBox() {
             </div>
           );
         }}
-        renderTags={(tags) => setTagValue(tags)}
+        renderTags={(value) =>
+          value.map((option, index) => (
+            <Chip
+              key={index}
+              label={option.name}
+              onDelete={() => handleDelete(option)}
+              deleteIcon={<CloseIcon style={{ height: 16, width: 16 }} />}
+              style={{
+                height: "26px",
+                backgroundColor: "rgba(189, 206, 219, 0.3)",
+              }}
+            />
+          ))
+        }
       />
-      <div className="chips-items">
-        {tagValue?.length > 0 &&
-          tagValue?.map((tag, index) => {
-            if (tag?.sectorCompany && tag?.sectorCompany.length > 0) {
-              return tag?.sectorCompany?.map((t, i) => {
-                return (
-                  <Chip
-                    key={i}
-                    label={t.name}
-                    onDelete={() => handleDelete(tag)}
-                    deleteIcon={<CloseIcon style={{ height: 16, width: 16 }} />}
-                  />
-                );
-              });
-            } else {
-              return (
-                <Chip
-                  key={index}
-                  label={tag.name}
-                  onDelete={() => handleDelete(tag)}
-                  deleteIcon={<CloseIcon style={{ height: 16, width: 16 }} />}
-                />
-              );
-            }
-          })}
-        {tagValue?.length > 0 ? (
-          <div className="clear-all" onClick={handleClearAll}>
-            Clear all
-          </div>
-        ) : (
-          <div />
-        )}
-      </div>
     </div>
   );
 }

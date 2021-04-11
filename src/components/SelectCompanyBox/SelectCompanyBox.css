@@ -1,46 +1,27 @@
-.chips-items {
-  /* display: flex; */
-  align-items: baseline;
-  padding-top: 15px;
-  padding-bottom: 10px;
-}
-.clear-all {
-  display: inline;
-  margin-left: 8px;
-  color: #1A7CBE;
-  font-weight: 400;
-  cursor: pointer;
-  width: 10px;
-
-}
 .PrivateNotchedOutline-legendNotched-4 {
   transition: none !important;
 }
 .PrivateNotchedOutline-legendLabelled-3 {
   display: none !important;
 }
-.MuiFormLabel-root.Mui-focused {
+.MuiFormLabel-root.Mui-focused,
+.MuiInputLabel-outlined.MuiInputLabel-shrink {
   display: none !important;
 }
 .MuiAutocomplete-groupLabel {
-  color: #1A7CBE !important;
+  color: #1a7cbe !important;
   font-size: 12px !important;
-  /* padding-bottom: -5px !important; */
   letter-spacing: 2px !important;
   height: 35px !important;
-  /* text-decoration: underline !important ; */
-  /* border-bottom: solid 1px #1A7CBE; */
 }
-.MuiChip-root {
-  margin-right: 8px !important;
-  margin-bottom: 5px !important;
-  background-color: rgba(189, 206, 219, 0.3)!important;
-  color: #2C3E50 !important;
+#SelectCompanyBox .MuiChip-root {
+  background-color: rgba(189, 206, 219, 0.3) !important;
+  color: #2c3e50 !important;
   font-size: 13px !important;
   height: 28px !important;
-}  
+}
 
-.MuiInputLabel-outlined{
+.MuiInputLabel-outlined {
   top: -10px !important;
 }
 
@@ -49,14 +30,27 @@
   border: solid 1px #888 !important;
 }
 
-.MuiAutocomplete-option[data-focus="true"]{
+#SelectCompanyBox .MuiAutocomplete-option[data-focus="true"] {
   background-color: #eef7fd !important;
 }
 
-.MuiAutocomplete-hasPopupIcon .MuiAutocomplete-inputRoot[class*="MuiOutlinedInput-root"], .MuiAutocomplete-hasClearIcon .MuiAutocomplete-inputRoot[class*="MuiOutlinedInput-root"] {
-  height: 50px !important;
+.MuiAutocomplete-hasPopupIcon
+  .MuiAutocomplete-inputRoot[class*="MuiOutlinedInput-root"],
+.MuiAutocomplete-hasClearIcon
+  .MuiAutocomplete-inputRoot[class*="MuiOutlinedInput-root"] {
+  height: 36px !important;
+}
+.MuiAutocomplete-inputRoot[class*="MuiOutlinedInput-root"] {
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+  padding-bottom: 4px !important;
+  padding-top: 0px !important;
 }
 
+.MuiAutocomplete-inputRoot[class*="MuiOutlinedInput-root"]
+  .MuiAutocomplete-input {
+  padding: 0px !important;
+}
 ::-webkit-scrollbar {
   width: 4px;
 }
@@ -70,14 +64,13 @@
   background: #555;
 }
 .company-heading {
-color: #8a8a8a;
-font-size: 12px;  
-margin-bottom: 12px;
-/* padding-bottom: -2px !important; */
-}  
-.dropdown-text{
+  color: #8a8a8a;
+  font-size: 12px;
+  margin-bottom: 12px;
+  /* padding-bottom: -2px !important; */
+}
+.dropdown-text {
   font-size: 14px;
   font-family: "Liber", sans-serif !important;
   /* letter-spacing: 1px !important; m  */
-
 }
