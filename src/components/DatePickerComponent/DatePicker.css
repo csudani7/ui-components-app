@@ -1,18 +1,28 @@
 .anticon-close-circle svg {
-    height: 21px;
-    width: 20px;
+  height: 21px;
+  width: 20px;
 }
-.rangeStyle{
-    border: 1px solid #969FA8;
-    box-sizing: border-box;
-    border-radius: 4px;
+.rangeStyle {
+  border: 1px solid #969fa8;
+  box-sizing: border-box;
+  border-radius: 4px;
 }
 
-.ant-dropdown-menu{
-    margin: 10px 20px 0px 0px!important;
-    width: 100%;
+.ant-dropdown-menu {
+  margin: 10px 20px 0px 0px !important;
+  width: 100%;
 }
-hr{
-    opacity: 20%;
-    margin: 0;
+hr {
+  opacity: 20%;
+  margin: 0;
+}
+.ant-dropdown-trigger {
+  padding: 10px;
+}
+.root-date-picker {
+  display: flex;
+  padding-top: 14px;
+}
+.root-date-picker button {
+  margin-left: 20px;
 }

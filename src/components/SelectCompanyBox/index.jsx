@@ -48,6 +48,7 @@ export default function SelectCompanyBox() {
         multiple
         limitTags={2}
         value={tagValue}
+        style={{ width: 400 }}
         disableClearable
         options={options
           .slice(0, 4)

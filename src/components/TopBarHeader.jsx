@@ -1,4 +1,5 @@
 import React from "react";
+import { Row, Col } from "antd";
 import Button from "@material-ui/core/Button";
 import SearchInputBox from "./SearchInputBox";
 import DocumentTypeSelect from "./DocumentTypeSelect";
@@ -8,25 +9,17 @@ import "./TopBarHeader.css";
 
 export default function TopBarHeader() {
   return (
-    <div className="outerDiv">
-      <div className="sideBar"></div>
-      <div className="header">
-        <div className="element">
+    <>
+      <Row gutter={[32, 32]}>
+        <Col span={10}>
           <SearchInputBox />
-        </div>
-        <div className="element">
-          <SelectCompanyBox />
-        </div>
-        <div className="element">
           <DocumentTypeSelect />
-        </div>
-        <div className="element">
+        </Col>
+        <Col span={12}>
+          <SelectCompanyBox />
           <DatePickerComponent />
-          <Button variant="contained" color="primary">
-            Search
-          </Button>
-        </div>
-      </div>
-    </div>
+        </Col>
+      </Row>
+    </>
   );
 }

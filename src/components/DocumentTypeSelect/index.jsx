@@ -16,53 +16,57 @@ export default function DocumentTypeSelect() {
   };
 
   return (
-    <Autocomplete
-      multiple
-      limitTags={5}
-      id="DocumentTypeSelect"
-      options={documentTypeList}
-      disableCloseOnSelect
-      getOptionLabel={(option) => option.ticker}
-      renderOption={(option, { selected }) => (
-        <React.Fragment>
-          <Checkbox
-            icon={icon}
-            checkedIcon={checkedIcon}
-            style={{ marginRight: 8, color: option.color }}
-            checked={selected}
+    <div style={{ paddingTop: "32px" }}>
+      <Autocomplete
+        multiple
+        limitTags={5}
+        id="DocumentTypeSelect"
+        options={documentTypeList}
+        disableCloseOnSelect
+        getOptionLabel={(option) => option.ticker}
+        renderOption={(option, { selected }) => (
+          <React.Fragment>
+            <Checkbox
+              icon={icon}
+              checkedIcon={checkedIcon}
+              style={{ marginRight: 8, color: option.color }}
+              checked={selected}
+            />
+            {option.name}
+          </React.Fragment>
+        )}
+        renderTags={(value) =>
+          value.map((option, index) => (
+            <Chip
+              key={index}
+              label={option.ticker}
+              style={{
+                backgroundColor: option.chipBgColor,
+                color: "#4A406C",
+                borderRadius: "4px",
+                marginLeft: "5px",
+                height: "22px",
+              }}
+              onDelete={() => handleDelete(option)}
+              deleteIcon={
+                <CloseIcon
+                  style={{ height: 16, width: 16, color: "#4A406C" }}
+                />
+              }
+            />
+          ))
+        }
+        style={{ width: 400 }}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            variant="outlined"
+            label="Select Document type"
+            // placeholder="Select Document type"
           />
-          {option.name}
-        </React.Fragment>
-      )}
-      renderTags={(value) =>
-        value.map((option, index) => (
-          <Chip
-            key={index}
-            label={option.ticker}
-            style={{
-              backgroundColor: option.chipBgColor,
-              color: "#4A406C",
-              borderRadius: "4px",
-              marginLeft: "5px",
-              height: '22px'
-            }}
-            onDelete={() => handleDelete(option)}
-            deleteIcon={
-              <CloseIcon style={{ height: 16, width: 16, color: "#4A406C" }} />
-            }
-          />
-        ))
-      }
-      // style={{ width: 500 }}
-      renderInput={(params) => (
-        <TextField
-          {...params}
-          variant="outlined"
-          label="Select Document type"
-          // placeholder="Select Document type"
-        />
-      )}
-    />
+        )}
+      />
+    </div>
   );
 }
 
