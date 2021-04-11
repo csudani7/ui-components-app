@@ -24,56 +24,54 @@ const calenderIcon = (
       x2="15.2239"
       y2="13.7273"
       stroke="#1A7CBE"
-      stroke-linecap="round"
+      strokeLinecap="round"
     />
     <path
       d="M13.8975 11.2273L15.724 13.7273L13.8975 16.2273"
       stroke="#1A7CBE"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M6.59155 16.2273L4.76507 13.7273L6.59155 11.2273"
       stroke="#1A7CBE"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
 
 export default function DatePickerComponent() {
-  const [dateValues, setDateValues] = useState([]);
+  const [defaultDateValues, setDefaultDateValues] = useState(undefined);
 
-  const setDefaultValue = (month) => {
-    const newDateValues = [
-      moment("2021-01", "YYYY-MM"),
-      moment("2021-12", "YYYY-MM"),
-    ];
-    const pastMonthYear = moment().subtract(month, "months").format("YYYY-MM");
+  const setDefaultValues = (month) => {
+    const parsedMonthYear = moment()
+      .subtract(month, "months")
+      .format("YYYY-MM");
     const currentMonthYear = moment().format("YYYY-MM");
     const newValues = [
-      moment(pastMonthYear, "YYYY-MM"),
+      moment(parsedMonthYear, "YYYY-MM"),
       moment(currentMonthYear, "YYYY-MM"),
     ];
-    setDateValues(newValues);
+    setDefaultDateValues(newValues);
   };
 
   const menu = (
     <Menu className="menuItems">
-      <Menu.Item key="1">
-        <a onClick={() => setDefaultValue(3)}>Last 3 Months</a>
+      <Menu.Item key="1" onClick={() => setDefaultValues(3)}>
+        Last 3 Months
       </Menu.Item>
       <hr />
-      <Menu.Item key="2">
-        <a onClick={() => setDefaultValue(6)}>Last 6 Months</a>
+      <Menu.Item key="2" onClick={() => setDefaultValues(6)}>
+        Last 6 Months
       </Menu.Item>
       <hr />
-      <Menu.Item key="3">
-        <a onClick={() => setDefaultValue(12)}>Last Year</a>
+      <Menu.Item key="3" onClick={() => setDefaultValues(12)}>
+        Last Year
       </Menu.Item>
       <hr />
-      <Menu.Item key="4">
-        <a onClick={() => setDefaultValue(60)}>Last 5 Year</a>
+      <Menu.Item key="4" onClick={() => setDefaultValues(60)}>
+        Last 5 Year
       </Menu.Item>
     </Menu>
   );
@@ -86,7 +84,7 @@ export default function DatePickerComponent() {
           className="rangeStyle w-100"
           size="large"
           picker="month"
-          defaultValue={dateValues}
+          value={defaultDateValues}
           suffixIcon={null}
           onChange={(dateMoment, dateString) =>
             console.log(dateMoment, "", dateString)

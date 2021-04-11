@@ -5,7 +5,7 @@ import "./app.css";
 function App() {
   return (
     <div>
-      <Layout>
+      <Layout style={{ overflow: "hidden" }}>
         <Row>
           <Col span={6} className="side-bar">
             Side bar section

@@ -1,6 +1,5 @@
 import React from "react";
 import { Row, Col } from "antd";
-import Button from "@material-ui/core/Button";
 import SearchInputBox from "./SearchInputBox";
 import DocumentTypeSelect from "./DocumentTypeSelect";
 import DatePickerComponent from "./DatePickerComponent";
