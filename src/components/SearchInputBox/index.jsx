@@ -74,11 +74,11 @@ export default function SearchInputBox() {
       <InputGroup compact>
         <Select value={value}>
           <Radio.Group onChange={handleDataChange}>
-            <Radio style={{ padding: "6px" }} value="Exact">
+            <Radio style={{ padding: "6px" }} value='Exact' checked={value==='Exact'}>
               Exact Phrase
             </Radio>
             <hr />
-            <Radio style={{ padding: "6px" }} value="All">
+            <Radio style={{ padding: "6px" }} value="All"  checked={value==='All'}>
               All Word
               <div>
                 <span style={{ fontSize: "12px" }}>Within</span>{" "}
@@ -92,11 +92,11 @@ export default function SearchInputBox() {
               </div>
             </Radio>
             <hr />
-            <Radio style={{ padding: "6px" }} value="Any">
+            <Radio style={{ padding: "6px" }} value="Any"  checked={value==='Any'}>
               Any Word
             </Radio>
             <hr />
-            <Checkbox style={{ padding: "2px" }} value="Synonyms">
+            <Checkbox style={{ padding: "2px" }} value="Synonyms"  checked={value==='Synonyms'}>
               Use Synonyms
             </Checkbox>
           </Radio.Group>

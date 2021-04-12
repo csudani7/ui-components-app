@@ -24,8 +24,10 @@ export default function DocumentTypeSelect() {
         options={documentTypeList}
         disableCloseOnSelect
         getOptionLabel={(option) => option.ticker}
+        dropdown
         renderOption={(option, { selected }) => (
-          <>          
+          <>  
+          <div className='innerOptions'>
             <Checkbox
               icon={icon}
               checkedIcon={checkedIcon}
@@ -33,6 +35,10 @@ export default function DocumentTypeSelect() {
               checked={selected}
             />
             {option.name}
+            <div>
+            <hr />
+            </div>
+            </div>
           </>
         )}
         renderTags={(value) =>
