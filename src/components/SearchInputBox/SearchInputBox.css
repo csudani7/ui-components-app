@@ -67,10 +67,17 @@ hr {
   right: 1px!important;
   width: 20px!important;
   height: 93%!important;
+  border:none!important;
 }
 .ant-input-number-input {
   padding: 0 5px!important;
 }
 .ant-input-number-handler-wrap .ant-input-number-handler {
   height: 49%!important;
+}
+.ant-input-number-handler-down {
+  border:none!important
+}
+.ant-input-number-handler .ant-input-number-handler-up-inner, .ant-input-number-handler .ant-input-number-handler-down-inner {
+  color: #40a9ff;
 }

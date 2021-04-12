@@ -57,9 +57,9 @@ export default function SearchInputBox() {
                   <InputNumber
                     min={1}
                     max={20}
-                    defaultValue={3}
+                    defaultValue={20}
                     style={{
-                      width: "50px",
+                      width: "45px",
                       height: "23px",
                       padding: "0%",
                       border: "none",
