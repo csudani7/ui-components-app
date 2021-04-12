@@ -8,9 +8,11 @@
   height: 42px;
 }
 .PrivateNotchedOutline-root-1 .MuiOutlinedInput-notchedOutline {
-  border: 1px solid #969fa8 !important;
   border-radius: 4px !important;
-  border-color: #969fa8 !important;
+  /* border-color: #969fa8 !important; */
+}
+.MuiOutlinedInput-notchedOutline:hover {
+  border: 1px solid #969fa8 !important;
 }
 
 .MuiAutocomplete-option[data-focus="true"] {

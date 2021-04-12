@@ -32,16 +32,22 @@ hr {
   border-radius: 4px !important;
 }
 .ant-select-selector {
-  border: 1px solid #969fa8 !important;
   border-top-left-radius: 4px !important;
   border-bottom-left-radius: 4px !important;
   /* width: 80px!important; */
   padding: 2px 6px!important;
 }
-.ant-input-affix-wrapper {
+
+.ant-select-selector:hover {
   border: 1px solid #969fa8 !important;
+}
+
+.ant-input-affix-wrapper {
   border-top-right-radius: 4px !important;
   border-bottom-right-radius: 4px !important;
+}
+.ant-input-affix-wrapper:hover {
+  border: 1px solid #969fa8 !important;
 }
 
 .MuiOutlinedInput-notchedOutline{
@@ -80,4 +86,31 @@ hr {
 }
 .ant-input-number-handler .ant-input-number-handler-up-inner, .ant-input-number-handler .ant-input-number-handler-down-inner {
   color: #40a9ff;
+}
+
+.ant-select-selection-item{
+  justify-content: center;
+  display: flex;
+}
+
+.ant-select-selector{
+  padding-top: 5px!important;
+}
+.ant-select-arrow{
+  padding-top: 3px!important;
+}
+
+.ant-input-affix-wrapper:focus, .ant-input-affix-wrapper-focused {
+  /* border-color:transparent!important; */
+  border-right-width: 1px !important;
+  outline: 0;
+  box-shadow: none!important;
+}
+.ant-select-selector:focus {
+  box-shadow: none!important;
+}
+.ant-select-focused:focus { 
+  /* border-color: #40a9ff;  */
+  border-right-width: 1px !important;
+  box-shadow: none!important;
 }

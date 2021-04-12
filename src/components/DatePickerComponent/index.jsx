@@ -90,7 +90,7 @@ export default function DatePickerComponent() {
             console.log(dateMoment, "", dateString)
           }
           allowClear={false}
-          style={{ height: 42 }}
+          style={{ height: 42, width: '60%' }}
         />
         <Dropdown overlay={menu} trigger={["click"]} placement="bottomRight">
           <span> {calenderIcon}</span>
