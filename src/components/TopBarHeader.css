@@ -7,5 +7,5 @@
     background-color: #1A7CBE;
 }
 .homeIcon:hover>path{
-    color: white;
+    fill: white;
 }
