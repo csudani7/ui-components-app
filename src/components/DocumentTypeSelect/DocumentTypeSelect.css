@@ -1,9 +1,9 @@
 #DocumentTypeSelect-popup .MuiAutocomplete-option[aria-selected="true"] {
   background-color: #ffff !important;
 }
-.MuiAutocomplete-option,
-.MuiAutocomplete-option[data-focus="true"],
-.MuiAutocomplete-option[aria-selected="true"] {
+#DocumentTypeSelect-popup .MuiAutocomplete-option,
+#DocumentTypeSelect-popup .MuiAutocomplete-option[data-focus="true"],
+#DocumentTypeSelect-popup .MuiAutocomplete-option[aria-selected="true"] {
   background-color: #ffff !important;
   height: 42px;
 }

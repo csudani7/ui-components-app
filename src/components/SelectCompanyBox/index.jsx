@@ -116,31 +116,6 @@ const topCompanies = [
     DisplayName: "HINDUNILVR",
   },
   { CompanyId: 3, CompanyName: "Infosys", DisplayName: "INFY" },
-  {
-    CompanyId: 4,
-    CompanyName: "Asset Management Sector",
-    DisplayName: "AMGMTSECTOR",
-  },
-  {
-    CompanyId: 5,
-    CompanyName: "Hotels & Hospitality Sector",
-    DisplayName: "HHSM",
-  },
-  {
-    CompanyId: 6,
-    CompanyName: "Oil Refining Sector",
-    DisplayName: "ORS",
-  },
-  {
-    CompanyId: 7,
-    CompanyName: "Chemical Sector",
-    DisplayName: "CS",
-  },
-  {
-    CompanyId: 8,
-    CompanyName: "Hospital Sector",
-    DisplayName: "HS",
-  },
   { CompanyId: 10, CompanyName: "ICICI Bank Ltd.", DisplayName: "ICICIBANK" },
   {
     CompanyId: 11,

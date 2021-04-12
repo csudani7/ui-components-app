@@ -30,7 +30,7 @@ const homeIcon = (
 export default function TopBarHeader() {
   return (
     <>
-      <Row gutter={[32, 32]} className="headerBox">
+      <Row gutter={[18, 18]} className="headerBox">
         <Col span={10}>
           <SearchInputBox />
           <DocumentTypeSelect />

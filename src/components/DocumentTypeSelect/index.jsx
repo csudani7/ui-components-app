@@ -54,6 +54,7 @@ export default function DocumentTypeSelect() {
                 borderRadius: "4px",
                 marginLeft: "5px",
                 height: "22px",
+                overflow: "hidden",
               }}
               onDelete={() => handleDelete(option)}
               deleteIcon={
