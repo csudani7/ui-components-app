@@ -6,17 +6,18 @@ import CheckBoxOutlineBlankIcon from "@material-ui/icons/CheckBoxOutlineBlank";
 import CheckBoxIcon from "@material-ui/icons/CheckBox";
 import Chip from "@material-ui/core/Chip";
 import CloseIcon from "@material-ui/icons/Close";
+import "./DocumentTypeSelect.css";
 
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
 export default function DocumentTypeSelect() {
   const handleDelete = (e) => {
-    // console.log(e, "e");
+    console.log(e, "e");
   };
 
   return (
-    <div style={{ paddingTop: "32px", overflow: 'hidden' }}>
+    <div style={{ paddingTop: "32px", overflow: "hidden" }}>
       <Autocomplete
         multiple
         limitTags={5}
@@ -27,18 +28,16 @@ export default function DocumentTypeSelect() {
         dropdown
         disableClearable
         renderOption={(option, { selected }) => (
-          <>  
-          <div className='innerOptions'>
-            <Checkbox
-              icon={icon}
-              checkedIcon={checkedIcon}
-              style={{ marginRight: 8, color: option.color }}
-              checked={selected}
-            />
-            {option.name}
+          <>
             <div>
-            <hr style={{width: '300%'}} />
-            </div>
+              <Checkbox
+                icon={icon}
+                checkedIcon={checkedIcon}
+                style={{ marginRight: 8, color: option.color }}
+                checked={selected}
+              />
+              {option.name}
+              <hr />
             </div>
           </>
         )}
@@ -49,7 +48,7 @@ export default function DocumentTypeSelect() {
               label={option.ticker}
               style={{
                 backgroundColor: option.chipBgColor,
-                color: "#4A406C",
+                color: option.fontColor,
                 borderRadius: "4px",
                 marginLeft: "5px",
                 height: "22px",
@@ -57,7 +56,7 @@ export default function DocumentTypeSelect() {
               onDelete={() => handleDelete(option)}
               deleteIcon={
                 <CloseIcon
-                  style={{ height: 16, width: 16, color: "#4A406C" }}
+                  style={{ height: 16, width: 16, color: option.fontColor }}
                 />
               }
             />
@@ -83,41 +82,48 @@ const documentTypeList = [
     ticker: "AR",
     color: "#8E44AD",
     chipBgColor: "rgba(142, 68, 173, 0.3)",
+    fontColor: "#4A406C",
   },
   {
     name: "ConCall Transcript",
     ticker: "CT",
     color: "#F39C12",
     chipBgColor: "rgba(243, 156, 18, 0.3)",
+    fontColor: "#685B3D",
   },
   {
     name: "Earning Release",
     ticker: "ER",
     color: "#2ECC71",
     chipBgColor: "rgba(46, 204, 113, 0.3)",
+    fontColor: "#2D695A",
   },
   {
     name: "Investor Presentation",
     ticker: "IP",
     color: "#E91E63",
     chipBgColor: "rgba(233, 30, 99, 0.3)",
+    fontColor: "#653556",
   },
   {
     name: "Brokerage Report",
     ticker: "BR",
     color: "#6893E6",
     chipBgColor: "rgba(104, 147, 230, 0.3)",
+    fontColor: "#3E587D",
   },
   {
     name: "Exchange Filling",
     ticker: "EF",
     color: "#E66868",
     chipBgColor: "rgba(230, 104, 104, 0.3)",
+    fontColor: "#644B57",
   },
   {
     name: "Others",
     ticker: "OT",
     color: "#3FE3ED",
     chipBgColor: "rgba(63, 227, 237, 0.3)",
+    fontColor: "#32707F",
   },
 ];

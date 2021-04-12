@@ -19,7 +19,7 @@ hr {
 .ant-dropdown-trigger {
   padding: 7px;
   position: absolute;
-  right: 215px;
+  right: 170px;
   top: 72px;
 }
 .root-date-picker {
@@ -32,4 +32,13 @@ hr {
 .ant-picker {
   border: 1px solid #969fa8 !important;
   border-radius: 4px !important;
+}
+.search-button {
+  height: 40px;
+  background-color: #1a7cbe !important;
+  color: #fff !important;
+  font-family: AvenirBold;
+}
+.searchbtn:hover {
+  background-color: #0b619a !important;
 }

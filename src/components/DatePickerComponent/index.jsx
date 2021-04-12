@@ -98,7 +98,6 @@ export default function DatePickerComponent() {
         <Button
           className="search-button"
           variant="contained"
-          color="primary"
           size="small"
         >
           Search

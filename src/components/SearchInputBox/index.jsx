@@ -1,45 +1,8 @@
 import React, { useState } from "react";
-import { Input, Select, Radio, Checkbox, InputNumber } from "antd";
+import { Input, Select, Radio, Checkbox, InputNumber, Tooltip } from "antd";
+import { InfoCircleOutlined } from "@ant-design/icons";
 import "./SearchInputBox.css";
 const InputGroup = Input.Group;
-
-const InfoIcon = () => {
-  return (
-    <svg
-      width="18"
-      height="18"
-      viewBox="0 0 18 18"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M9 17C13.4183 17 17 13.4183 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17Z"
-        stroke="#969FA8"
-        strokeWidth="1.5"
-      />
-      <path
-        d="M8.6 5H9"
-        stroke="#969FA8"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-      />
-      <path
-        d="M7.4 8.20001H9V12.2"
-        stroke="#969FA8"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M7.4 12.2H10.6"
-        stroke="#969FA8"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-};
 
 const SearchOutlinedIcon = () => {
   return (
@@ -71,56 +34,87 @@ export default function SearchInputBox() {
 
   return (
     <>
-      <InputGroup compact >
+      <InputGroup compact>
         <div>
-        <Select value={value}>
-          <Radio.Group onChange={handleDataChange}>
-            <Radio style={{ padding: "6px" }} value='Exact' checked={value==='Exact'}>
-              Exact Phrase
-            </Radio>
-            <hr />
-            <Radio style={{ padding: "6px" }} value="All"  checked={value==='All'}>
-              All Word
-              <div>
-                <span style={{ fontSize: "12px" }}>Within</span>{" "}
-                <InputNumber
-                  min={1}
-                  max={20}
-                  defaultValue={3}
-                  style={{ width: "50px", height: "23px", padding: '0%', border:'none' }}
-                />{" "}
-                <span style={{ fontSize: "12px" }}>Words</span>
-              </div>
-            </Radio>
-            <hr />
-            <Radio style={{ padding: "6px" }} value="Any"  checked={value==='Any'}>
-              Any Word
-            </Radio>
-            <hr />
-            <Checkbox style={{ padding: "2px" }} value="Synonyms"  checked={value==='Synonyms'}>
-              Use Synonyms
-            </Checkbox>
-          </Radio.Group>
-        </Select>
+          <Select value={value}>
+            <Radio.Group onChange={handleDataChange}>
+              <Radio
+                style={{ padding: "6px" }}
+                value="Exact"
+                checked={value === "Exact"}
+              >
+                Exact Phrase
+              </Radio>
+              <hr />
+              <Radio
+                style={{ padding: "6px" }}
+                value="All"
+                checked={value === "All"}
+              >
+                All Word
+                <div>
+                  <span style={{ fontSize: "12px" }}>Within</span>{" "}
+                  <InputNumber
+                    min={1}
+                    max={20}
+                    defaultValue={3}
+                    style={{
+                      width: "50px",
+                      height: "23px",
+                      padding: "0%",
+                      border: "none",
+                    }}
+                  />{" "}
+                  <span style={{ fontSize: "12px" }}>Words</span>
+                </div>
+              </Radio>
+              <hr />
+              <Radio
+                style={{ padding: "6px" }}
+                value="Any"
+                checked={value === "Any"}
+              >
+                Any Word
+              </Radio>
+              <hr />
+              <Checkbox
+                style={{ padding: "2px" }}
+                value="Synonyms"
+                checked={value === "Synonyms"}
+              >
+                Use Synonyms
+              </Checkbox>
+            </Radio.Group>
+          </Select>
         </div>
 
-   
         <div>
-        <Input
-          style={{ width: "336px", height: "42px", marginLeft: '5px'}}
-          suffix={comboSuffix}
-          placeholder="Enter Search input"
-        />
+          <Input
+            style={{ width: "336px", height: "42px", marginLeft: "5px" }}
+            suffix={
+              <>
+                <Tooltip
+                  placement="bottom"
+                  color={"#1a7cbe"}
+                  title={
+                    "Loream upsome five centuries, but also the leap into electroni typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of"
+                  }
+                >
+                  <InfoCircleOutlined
+                    style={{
+                      marginRight: "6px",
+                      color: "#969FA8",
+                      fontSize: "16px",
+                    }}
+                  />
+                </Tooltip>{" "}
+                <SearchOutlinedIcon />
+              </>
+            }
+            placeholder="Enter Search input"
+          />
         </div>
       </InputGroup>
     </>
   );
 }
-
-const comboSuffix = (
-  <>
-    <InfoIcon />
-    &nbsp;
-    <SearchOutlinedIcon />
-  </>
-);
