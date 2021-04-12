@@ -20,16 +20,16 @@ export default function DocumentTypeSelect() {
     <div style={{ paddingTop: "32px", overflow: "hidden" }}>
       <Autocomplete
         multiple
-        limitTags={5}
+        // limitTags={5}
         id="DocumentTypeSelect"
         options={documentTypeList}
         disableCloseOnSelect
         getOptionLabel={(option) => option.ticker}
         dropdown
-        disableClearable
+        disableClearable /* this is use for clear all button */
         renderOption={(option, { selected }) => (
           <>
-            <div>
+            <div style={{ width: "100%" }}>
               <Checkbox
                 icon={icon}
                 checkedIcon={checkedIcon}
@@ -37,7 +37,9 @@ export default function DocumentTypeSelect() {
                 checked={selected}
               />
               {option.name}
-              <hr />
+              <div>
+                <hr />
+              </div>
             </div>
           </>
         )}
