@@ -71,7 +71,8 @@ export default function SearchInputBox() {
 
   return (
     <>
-      <InputGroup compact>
+      <InputGroup compact >
+        <div>
         <Select value={value}>
           <Radio.Group onChange={handleDataChange}>
             <Radio style={{ padding: "6px" }} value='Exact' checked={value==='Exact'}>
@@ -86,7 +87,7 @@ export default function SearchInputBox() {
                   min={1}
                   max={20}
                   defaultValue={3}
-                  style={{ width: "41px", height: "23px" }}
+                  style={{ width: "50px", height: "23px", padding: '0%', border:'none' }}
                 />{" "}
                 <span style={{ fontSize: "12px" }}>Words</span>
               </div>
@@ -101,11 +102,16 @@ export default function SearchInputBox() {
             </Checkbox>
           </Radio.Group>
         </Select>
+        </div>
+
+   
+        <div>
         <Input
-          style={{ width: "340px", height: "42px" }}
+          style={{ width: "336px", height: "42px", marginLeft: '5px'}}
           suffix={comboSuffix}
           placeholder="Enter Search input"
         />
+        </div>
       </InputGroup>
     </>
   );

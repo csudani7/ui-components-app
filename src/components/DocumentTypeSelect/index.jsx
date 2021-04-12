@@ -16,7 +16,7 @@ export default function DocumentTypeSelect() {
   };
 
   return (
-    <div style={{ paddingTop: "32px" }}>
+    <div style={{ paddingTop: "32px", overflow: 'hidden' }}>
       <Autocomplete
         multiple
         limitTags={5}
@@ -25,6 +25,7 @@ export default function DocumentTypeSelect() {
         disableCloseOnSelect
         getOptionLabel={(option) => option.ticker}
         dropdown
+        disableClearable
         renderOption={(option, { selected }) => (
           <>  
           <div className='innerOptions'>
@@ -36,7 +37,7 @@ export default function DocumentTypeSelect() {
             />
             {option.name}
             <div>
-            <hr />
+            <hr style={{width: '300%'}} />
             </div>
             </div>
           </>

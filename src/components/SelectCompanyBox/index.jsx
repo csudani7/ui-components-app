@@ -44,7 +44,7 @@ export default function SelectCompanyBox() {
   };
 
   return (
-    <div style={{ paddingTop: "7px" }}>
+    <div style={{ paddingTop: "5px" }}>
       <Autocomplete
         id="SelectCompanyBox"
         multiple
