@@ -28,7 +28,7 @@ export default function DocumentTypeSelect() {
         disableClearable
         renderOption={(option, { selected }) => (
           <>  
-          <div className='innerOptions'>
+          <div className='innerOptions' style={{width:'100%'}}>
             <Checkbox
               icon={icon}
               checkedIcon={checkedIcon}
@@ -37,7 +37,7 @@ export default function DocumentTypeSelect() {
             />
             {option.name}
             <div>
-            <hr style={{width: '300%'}} />
+            <hr style={{width: '100%'}} />
             </div>
             </div>
           </>
@@ -63,7 +63,7 @@ export default function DocumentTypeSelect() {
             />
           ))
         }
-        style={{ width: 400 }}
+        style={{ width: 400}}
         renderInput={(params) => (
           <TextField
             {...params}

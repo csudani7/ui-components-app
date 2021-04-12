@@ -41,9 +41,3 @@ line-height: 20px!important;
 color: #2C3E50!important;
 }
 
-.MuiAutocomplete-paper .MuiAutocomplete-listbox{
-  overflow: hidden!important;
-}
-#DocumentTypeSelect-popup{
-  overflow: hidden!important;
-}
