@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { Input, Select, Radio, Checkbox, InputNumber, Tooltip } from "antd";
+import {
+  Input,
+  Select,
+  Radio,
+  Checkbox,
+  InputNumber,
+  Popover,
+  Divider,
+} from "antd";
 import { InfoCircleOutlined } from "@ant-design/icons";
 import "./SearchInputBox.css";
 const InputGroup = Input.Group;
@@ -31,6 +39,76 @@ export default function SearchInputBox() {
   const handleDataChange = (e) => {
     setValue(e.target.value);
   };
+
+  const content = (
+    <div>
+      <div style={{ display: "flex", marginTop:'10px' }}>
+        <p
+          style={{
+            color: "#2c3e50",
+            fontWeight: "600",
+            fontSize: "14px",
+            paddingRight: "18px",
+          }}
+        >
+          Exact Phrase
+        </p>
+        <p
+          style={{
+            color: "rgba(44, 62, 80, 0.5)",
+            fontWeight: "350",
+            fontSize: "12px",
+          }}
+        >
+          Lorem Ipsum is simply dummy text of the printing
+        </p>
+      </div>
+      <hr />
+      <div style={{ display: "flex", marginTop:'10px' }}>
+        <p
+          style={{
+            color: "#2c3e50",
+            fontWeight: "600",
+            fontSize: "14px",
+            paddingRight: "42px",
+          }}
+        >
+          All Word
+        </p>
+        <p
+          style={{
+            color: "rgba(44, 62, 80, 0.5)",
+            fontWeight: "350",
+            fontSize: "12px",
+          }}
+        >
+          Lorem Ipsum is simply dummy text of the printing
+        </p>
+      </div>
+      <hr />
+      <div style={{ display: "flex", marginTop:'10px' }}>
+        <p
+          style={{
+            color: "#2c3e50",
+            fontWeight: "600",
+            fontSize: "14px",
+            paddingRight: "35px",
+          }}
+        >
+          Any Word
+        </p>
+        <p
+          style={{
+            color: "rgba(44, 62, 80, 0.5)",
+            fontWeight: "350",
+            fontSize: "12px",
+          }}
+        >
+          Lorem Ipsum is simply dummy text of the printing
+        </p>
+      </div>
+    </div>
+  );
 
   return (
     <>
@@ -93,12 +171,13 @@ export default function SearchInputBox() {
             style={{ width: "336px", height: "42px", marginLeft: "5px" }}
             suffix={
               <>
-                <Tooltip
+                <Popover
+                  content={content}
                   placement="bottom"
-                  color={"#1a7cbe"}
-                  title={
-                    "Loream upsome five centuries, but also the leap into electroni typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of"
-                  }
+                  style={{
+                    boxShadow: "0px 0px 20px rgba(0, 0, 0, 0.08)",
+                    borderRadius: "4px",
+                  }}
                 >
                   <InfoCircleOutlined
                     style={{
@@ -107,7 +186,7 @@ export default function SearchInputBox() {
                       fontSize: "16px",
                     }}
                   />
-                </Tooltip>{" "}
+                </Popover>{" "}
                 <SearchOutlinedIcon />
               </>
             }

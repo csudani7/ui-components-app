@@ -13,7 +13,7 @@ export default function SelectCompanyBox() {
   const optionData = topCompanies.map((option) => {
     const company = option.CompanyName;
     return {
-      matchPattern: company.includes("Sector") ? "SECTOR" : "COMPANY",
+      matchPattern: company?.includes("Sector") ? "SECTOR" : "COMPANY",
       ...option,
     };
   });
@@ -27,7 +27,7 @@ export default function SelectCompanyBox() {
     const newOptions = sectionData.map((option) => {
       const company = option.CompanyName;
       return {
-        matchPattern: company.includes("Sector") ? "SECTOR" : "COMPANY",
+        matchPattern: company?.includes("Sector") ? "SECTOR" : "COMPANY",
         ...option,
       };
     });
@@ -48,6 +48,7 @@ export default function SelectCompanyBox() {
       <Autocomplete
         id="SelectCompanyBox"
         multiple
+        autoHighlight
         limitTags={3}
         value={tagValue}
         style={{ width: 400 }}
