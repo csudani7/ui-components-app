@@ -31,9 +31,10 @@ hr {
 }
 .ant-picker {
   border-radius: 4px !important;
-}
-.ant-picker:hover{
   border: 1px solid #969fa8 !important;
+}
+.ant-picker:hover {
+  border: 1px solid #4e4f50 !important;
 }
 .search-button {
   height: 40px;
@@ -46,5 +47,8 @@ hr {
 }
 
 .rangeStyle div:nth-last-child(2) {
-  width: 150%!important;
+  width: 150% !important;
+}
+.ant-picker-input > input::placeholder {
+  color: #757575 !important;
 }

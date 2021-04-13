@@ -71,7 +71,7 @@ export default function SelectCompanyBox() {
           const matches = match(option.CompanyName, inputValue);
           const parts = parse(option.CompanyName, matches);
           return (
-            <div style={{ fontFamily: "Montserrat", fontSize: "14px" }}>
+            <div style={{ fontSize: "14px" }}>
               {parts.map((part, index) => (
                 <span
                   key={index}
@@ -89,7 +89,11 @@ export default function SelectCompanyBox() {
               key={index}
               label={option.DisplayName}
               onDelete={() => handleDelete(option)}
-              deleteIcon={<CloseIcon style={{ height: 16, width: 16 }} />}
+              deleteIcon={
+                <CloseIcon
+                  style={{ height: 16, width: 16, color: "#2C3E50" }}
+                />
+              }
               style={{
                 height: "26px",
                 backgroundColor: "rgba(189, 206, 219, 0.3)",
