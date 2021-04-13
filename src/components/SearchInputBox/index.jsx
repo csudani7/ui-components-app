@@ -1,13 +1,5 @@
 import React, { useState } from "react";
-import {
-  Input,
-  Select,
-  Radio,
-  Checkbox,
-  InputNumber,
-  Popover,
-  Divider,
-} from "antd";
+import { Input, Select, Radio, Checkbox, InputNumber, Popover } from "antd";
 import { InfoCircleOutlined } from "@ant-design/icons";
 import "./SearchInputBox.css";
 const InputGroup = Input.Group;
@@ -42,7 +34,7 @@ export default function SearchInputBox() {
 
   const content = (
     <div>
-      <div style={{ display: "flex", marginTop:'10px' }}>
+      <div style={{ display: "flex", marginTop: "10px" }}>
         <p
           style={{
             color: "#2c3e50",
@@ -64,7 +56,7 @@ export default function SearchInputBox() {
         </p>
       </div>
       <hr />
-      <div style={{ display: "flex", marginTop:'10px' }}>
+      <div style={{ display: "flex", marginTop: "10px" }}>
         <p
           style={{
             color: "#2c3e50",
@@ -86,7 +78,7 @@ export default function SearchInputBox() {
         </p>
       </div>
       <hr />
-      <div style={{ display: "flex", marginTop:'10px' }}>
+      <div style={{ display: "flex", marginTop: "10px" }}>
         <p
           style={{
             color: "#2c3e50",

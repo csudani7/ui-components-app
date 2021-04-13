@@ -10,13 +10,16 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 export default function SelectCompanyBox() {
   const [tagValue, setTagValue] = React.useState([]);
+  const [enteredInputValue, setEnteredInputValue] = React.useState("");
+
   const optionData = topCompanies.map((option) => {
     const company = option.CompanyName;
     return {
-      matchPattern: company?.includes("Sector") ? "SECTOR" : "COMPANY",
       ...option,
+      matchPattern: company?.includes("Sector") ? "SECTOR" : "COMPANY",
     };
   });
+
   const [options, setOptions] = React.useState(optionData);
 
   const handleDelete = (e) => {
@@ -35,10 +38,12 @@ export default function SelectCompanyBox() {
   };
 
   const handleChange = (e, newValue) => {
-    setTagValue(newValue);
     let filterData;
+    setTagValue(newValue);
     newValue.forEach((element) => {
-      filterData = options.filter((op) => op.CompanyId !== element.CompanyId);
+      filterData = options.filter(
+        (option) => option.CompanyId !== element.CompanyId
+      );
     });
     setOptions(filterData);
   };
@@ -49,16 +54,23 @@ export default function SelectCompanyBox() {
         id="SelectCompanyBox"
         multiple
         autoHighlight
-        limitTags={3}
-        value={tagValue}
-        style={{ width: 400 }}
         disableClearable
+        // limitTags={3}
+        style={{ width: 400 }}
+        value={tagValue}
         options={options
-          .slice(0, 4)
-          ?.sort((a, b) => -b.matchPattern.localeCompare(a.matchPattern))}
+          ?.slice(0, 4)
+          .sort((a, b) => -b.matchPattern.localeCompare(a.matchPattern))}
         onChange={(e, newValue) => handleChange(e, newValue)}
         groupBy={(option) => option.matchPattern}
-        getOptionLabel={(option) => option.CompanyName}
+        getOptionLabel={(option) =>
+          enteredInputValue.toUpperCase() === option.DisplayName
+            ? option.DisplayName
+            : option.CompanyName
+        }
+        onInputChange={(event, newInputValue) => {
+          setEnteredInputValue(newInputValue);
+        }}
         popupIcon={<ExpandMoreIcon />}
         renderInput={(params) => (
           <TextField
@@ -73,7 +85,7 @@ export default function SelectCompanyBox() {
           const parts = parse(option.CompanyName, matches);
           return (
             <div style={{ fontSize: "14px" }}>
-              {parts.map((part, index) => (
+              {parts?.map((part, index) => (
                 <span
                   key={index}
                   style={{ fontWeight: part.highlight ? 900 : "normal" }}
@@ -85,7 +97,7 @@ export default function SelectCompanyBox() {
           );
         }}
         renderTags={(value) =>
-          value.map((option, index) => (
+          value?.map((option, index) => (
             <Chip
               key={index}
               label={option.DisplayName}
@@ -121,62 +133,77 @@ const topCompanies = [
     DisplayName: "HINDUNILVR",
   },
   { CompanyId: 3, CompanyName: "Infosys", DisplayName: "INFY" },
-  { CompanyId: 10, CompanyName: "ICICI Bank Ltd.", DisplayName: "ICICIBANK" },
+  { CompanyId: 4, CompanyName: "ICICI Bank Ltd.", DisplayName: "ICICIBANK" },
   {
-    CompanyId: 11,
+    CompanyId: 5,
     CompanyName: "Housing & Urban Development Corporation Ltd.",
     DisplayName: "HDFC",
   },
   {
-    CompanyId: 12,
+    CompanyId: 6,
     CompanyName: "Dewan Housing Finance Corporation Ltd.",
     DisplayName: "DHFCL",
   },
   {
-    CompanyId: 13,
+    CompanyId: 7,
     CompanyName: "KPIT Technologies Ltd.",
     DisplayName: "KPITTL",
   },
   {
-    CompanyId: 14,
+    CompanyId: 8,
     CompanyName: "Maheshwari Logistics Ltd.",
     DisplayName: "MLT",
   },
   {
-    CompanyId: 15,
+    CompanyId: 9,
     CompanyName: "Vishwaraj Sugar Industries Ltd.",
     DisplayName: "VSIL",
   },
   {
-    CompanyId: 16,
+    CompanyId: 10,
     CompanyName: "Hindustan Construction Company Ltd.",
     DisplayName: "HCL",
   },
   {
-    CompanyId: 17,
+    CompanyId: 11,
     CompanyName: "Dhanada Corporation Ltd.",
     DisplayName: "DCL",
   },
   {
-    CompanyId: 15,
+    CompanyId: 12,
     CompanyName: "Vishwaraj Sugar Industries Ltd.",
     DisplayName: "VSIL",
   },
   {
-    CompanyId: 16,
+    CompanyId: 13,
     CompanyName: "State Bank Of India",
     DisplayName: "SBIN",
   },
   {
-    CompanyId: 17,
+    CompanyId: 14,
     CompanyName: "Nestle India",
     DisplayName: "NESTLEIND",
   },
-  { CompanyId: 18, CompanyName: "Axis Bank", DisplayName: "AXISBANK" },
+  { CompanyId: 15, CompanyName: "Axis Bank", DisplayName: "AXISBANK" },
   {
-    CompanyId: 19,
+    CompanyId: 16,
     CompanyName: "Avenue Supermarts",
     DisplayName: "DMART",
   },
-  { CompanyId: 20, CompanyName: "Larsen & Toubro", DisplayName: "LT" },
+  {
+    CompanyId: 17,
+    CompanyName: "Sun Pharmaceutical Industries",
+    DisplayName: "SUNPHARMA",
+  },
+  {
+    CompanyId: 18,
+    CompanyName: "Adani Green Energy",
+    DisplayName: "ADANIGREEN",
+  },
+  { CompanyId: 19, CompanyName: "Titan Company", DisplayName: "TITAN" },
+  {
+    CompanyId: 20,
+    CompanyName: "Oil & Natural Gas Corporation",
+    DisplayName: "ONGC",
+  },
 ];
