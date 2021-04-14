@@ -19,12 +19,13 @@ hr {
 .ant-dropdown-trigger {
   padding: 7px;
   position: absolute;
-  right: 170px;
-  top: 72px;
+  right: 168px;
+  top: 3px;
 }
 .root-date-picker {
   display: flex;
-  padding-top: 26px;
+  align-items: end;
+  justify-content: flex-end;
 }
 .root-date-picker button {
   margin-left: 20px;
@@ -36,19 +37,18 @@ hr {
 .ant-picker:hover {
   border: 1px solid #4e4f50 !important;
 }
-.search-button {
-  height: 40px;
-  background-color: #1a7cbe !important;
-  color: #fff !important;
-  font-family: AvenirBold;
-}
-.searchbtn:hover {
-  background-color: #0b619a !important;
-}
 
-.rangeStyle div:nth-last-child(2) {
-  width: 150% !important;
-}
 .ant-picker-input > input::placeholder {
-  color: #757575 !important;
+  color: #666666 !important;
+}
+.home-button {
+  height: 40px;
+  color: #fff !important;
+  padding-left: 80px;
+}
+.homeIcon:hover {
+  background-color: #1a7cbe;
+}
+.homeIcon:hover > path {
+  fill: white;
 }

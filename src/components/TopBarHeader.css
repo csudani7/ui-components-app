@@ -3,9 +3,3 @@
     padding-bottom: 18px;
     padding-top: 22px;
 }
-.homeIcon:hover {
-    background-color: #1A7CBE;
-}
-.homeIcon:hover>path{
-    fill: white;
-}

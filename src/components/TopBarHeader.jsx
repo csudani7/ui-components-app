@@ -29,21 +29,23 @@ const homeIcon = (
 
 export default function TopBarHeader() {
   return (
-    <>
-      <Row gutter={[18, 18]} className="headerBox">
-        <Col span={10}>
+    <div className="headerBox">
+      <Row>
+        <Col span={8}>
           <SearchInputBox />
+        </Col>
+        <Col span={8} style={{ marginLeft: "-35px" }}>
           <DocumentTypeSelect />
         </Col>
-
-        <Col>
-          <SelectCompanyBox />
+        <Col span={8}>
           <DatePickerComponent />
         </Col>
-        <Col span={2} style={{ marginLeft: "8%" }}>
-          {homeIcon}
+      </Row>
+      <Row>
+        <Col span={24}>
+          <SelectCompanyBox />
         </Col>
       </Row>
-    </>
+    </div>
   );
 }

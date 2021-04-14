@@ -7,10 +7,7 @@ function App() {
     <div>
       <Layout style={{ overflow: "hidden" }}>
         <Row>
-          <Col span={6} className="side-bar">
-            Side bar section
-          </Col>
-          <Col span={18} className="main-section">
+          <Col span={24} className="main-section">
             <TopBarHeader />
           </Col>
         </Row>

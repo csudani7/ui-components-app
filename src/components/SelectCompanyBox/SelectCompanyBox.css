@@ -15,10 +15,8 @@
   height: 35px !important;
 }
 #SelectCompanyBox .MuiChip-root {
-  background-color: rgba(189, 206, 219, 0.3) !important;
-  color: #2c3e50 !important;
-  font-size: 13px !important;
   height: 28px !important;
+  border-radius: 12px !important;
 }
 
 .MuiInputLabel-outlined {
@@ -73,4 +71,14 @@
 }
 .MuiAutocomplete-groupUl .MuiAutocomplete-option {
   padding-left: 16px !important;
+}
+.clear-all {
+  display: inline;
+  margin-left: 8px;
+  color: #1A7CBE;
+  font-weight: 400;
+  cursor: pointer;
+}
+.chips-items {
+  padding-left: 10px;
 }

@@ -17,10 +17,9 @@ export default function DocumentTypeSelect() {
   };
 
   return (
-    <div style={{ paddingTop: "32px", overflow: "hidden" }}>
+    <div style={{ paddingTop: "6px" }}>
       <Autocomplete
         multiple
-        // limitTags={5}
         id="DocumentTypeSelect"
         options={documentTypeList}
         disableCloseOnSelect
@@ -65,7 +64,7 @@ export default function DocumentTypeSelect() {
             />
           ))
         }
-        style={{ width: 400 }}
+        style={{ width: 480 }}
         renderInput={(params) => (
           <TextField
             {...params}

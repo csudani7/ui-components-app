@@ -37,6 +37,11 @@ export default function SelectCompanyBox() {
     setOptions(newOptions);
   };
 
+  const handleClearAll = () => {
+    setTagValue([]);
+    setOptions(optionData);
+  };
+
   const handleChange = (e, newValue) => {
     let filterData;
     setTagValue(newValue);
@@ -49,22 +54,21 @@ export default function SelectCompanyBox() {
   };
 
   return (
-    <div style={{ paddingTop: "5px" }}>
+    <div style={{ paddingTop: "18px", display: "flex" }}>
       <Autocomplete
         id="SelectCompanyBox"
         multiple
         autoHighlight
         disableClearable
-        // limitTags={3}
-        style={{ width: 400 }}
+        style={{ width: 230 }}
         value={tagValue}
-        options={options
-          ?.slice(0, 4)
-          .sort((a, b) => -b.matchPattern.localeCompare(a.matchPattern))}
+        options={options?.sort(
+          (a, b) => -b.matchPattern.localeCompare(a.matchPattern)
+        )}
         onChange={(e, newValue) => handleChange(e, newValue)}
         groupBy={(option) => option.matchPattern}
         getOptionLabel={(option) =>
-          enteredInputValue.toUpperCase() === option.DisplayName
+          option.DisplayName === enteredInputValue.toUpperCase()
             ? option.DisplayName
             : option.CompanyName
         }
@@ -76,7 +80,7 @@ export default function SelectCompanyBox() {
           <TextField
             {...params}
             id="outlined-basic"
-            label="Search for a company"
+            label="Add companies"
             variant="outlined"
           />
         )}
@@ -96,114 +100,170 @@ export default function SelectCompanyBox() {
             </div>
           );
         }}
-        renderTags={(value) =>
-          value?.map((option, index) => (
-            <Chip
-              key={index}
-              label={option.DisplayName}
-              onDelete={() => handleDelete(option)}
-              deleteIcon={
-                <CloseIcon
-                  style={{ height: 16, width: 16, color: "#2C3E50" }}
-                />
-              }
-              style={{
-                height: "26px",
-                backgroundColor: "rgba(189, 206, 219, 0.3)",
-              }}
-            />
-          ))
-        }
+        renderTags={(tags) => setTagValue(tags)}
       />
+      <div className="chips-items">
+        {tagValue &&
+          tagValue.map((tag) => {
+            return (
+              <Chip
+                key={tag.CompanyId}
+                label={tag.DisplayName}
+                onDelete={() => handleDelete(tag)}
+                style={{
+                  backgroundColor: tag.active ? "#70808E" : "#fff",
+                  color: tag.active ? "#FFF" : "#70808E",
+                  borderColor: tag.active ? "#70808E" : "#fff",
+                  border: "1px solid",
+                  borderRadius: "12px",
+                  marginRight: "5px",
+                }}
+                deleteIcon={
+                  <CloseIcon
+                    style={{
+                      height: 16,
+                      width: 16,
+                      color: tag.active ? "FFF" : "#70808E",
+                    }}
+                  />
+                }
+              />
+            );
+          })}
+
+        {tagValue && tagValue.length > 0 ? (
+          <div className="clear-all" onClick={handleClearAll}>
+            Clear all
+          </div>
+        ) : (
+          <div />
+        )}
+      </div>
     </div>
   );
 }
 
 // data from API response
 const topCompanies = [
-  { CompanyId: 0, CompanyName: "Reliance Industries", DisplayName: "RELIANCE" },
+  {
+    CompanyId: 0,
+    CompanyName: "Reliance Industries",
+    DisplayName: "RELIANCE",
+    active: false,
+  },
   {
     CompanyId: 1,
     CompanyName: "Tata Consultancy Services",
     DisplayName: "TCS",
+    active: true,
   },
   {
     CompanyId: 2,
     CompanyName: "Hindustan Unilever",
     DisplayName: "HINDUNILVR",
+    active: false,
   },
-  { CompanyId: 3, CompanyName: "Infosys", DisplayName: "INFY" },
-  { CompanyId: 4, CompanyName: "ICICI Bank Ltd.", DisplayName: "ICICIBANK" },
+  { CompanyId: 3, CompanyName: "Infosys", DisplayName: "INFY", active: true },
+  {
+    CompanyId: 4,
+    CompanyName: "ICICI Bank Ltd.",
+    DisplayName: "ICICIBANK",
+    active: true,
+  },
   {
     CompanyId: 5,
     CompanyName: "Housing & Urban Development Corporation Ltd.",
     DisplayName: "HDFC",
+    active: true,
   },
   {
     CompanyId: 6,
     CompanyName: "Dewan Housing Finance Corporation Ltd.",
     DisplayName: "DHFCL",
+    active: false,
   },
   {
     CompanyId: 7,
     CompanyName: "KPIT Technologies Ltd.",
     DisplayName: "KPITTL",
+    active: true,
   },
   {
     CompanyId: 8,
     CompanyName: "Maheshwari Logistics Ltd.",
     DisplayName: "MLT",
+    active: true,
   },
   {
     CompanyId: 9,
     CompanyName: "Vishwaraj Sugar Industries Ltd.",
     DisplayName: "VSIL",
+    active: false,
   },
   {
     CompanyId: 10,
     CompanyName: "Hindustan Construction Company Ltd.",
     DisplayName: "HCL",
+    active: true,
   },
   {
     CompanyId: 11,
     CompanyName: "Dhanada Corporation Ltd.",
     DisplayName: "DCL",
+    active: false,
   },
   {
     CompanyId: 12,
     CompanyName: "Vishwaraj Sugar Industries Ltd.",
     DisplayName: "VSIL",
+    active: false,
   },
   {
     CompanyId: 13,
     CompanyName: "State Bank Of India",
     DisplayName: "SBIN",
+    active: true,
   },
   {
     CompanyId: 14,
     CompanyName: "Nestle India",
     DisplayName: "NESTLEIND",
+    active: true,
   },
-  { CompanyId: 15, CompanyName: "Axis Bank", DisplayName: "AXISBANK" },
+  {
+    CompanyId: 15,
+    CompanyName: "Axis Bank",
+    DisplayName: "AXISBANK",
+    active: true,
+  },
   {
     CompanyId: 16,
     CompanyName: "Avenue Supermarts",
     DisplayName: "DMART",
+    active: false,
   },
   {
     CompanyId: 17,
     CompanyName: "Sun Pharmaceutical Industries",
     DisplayName: "SUNPHARMA",
+    active: true,
   },
   {
     CompanyId: 18,
     CompanyName: "Adani Green Energy",
     DisplayName: "ADANIGREEN",
+    active: false,
   },
-  { CompanyId: 19, CompanyName: "Titan Company", DisplayName: "TITAN" },
+  {
+    CompanyId: 19,
+    CompanyName: "Titan Company",
+    DisplayName: "TITAN",
+    active: true,
+  },
   {
     CompanyId: 20,
     CompanyName: "Oil & Natural Gas Corporation",
     DisplayName: "ONGC",
+    active: true,
   },
 ];
