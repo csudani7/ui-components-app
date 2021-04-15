@@ -52,13 +52,13 @@ export default function DocumentTypeSelect() {
                 color: option.fontColor,
                 borderRadius: "4px",
                 marginLeft: "5px",
-                height: "22px",
+                height: "27px",
                 overflow: "hidden",
               }}
               onDelete={() => handleDelete(option)}
               deleteIcon={
                 <CloseIcon
-                  style={{ height: 16, width: 16, color: option.fontColor }}
+                  style={{ height: 14, width: 14, color: option.fontColor }}
                 />
               }
             />
@@ -70,7 +70,6 @@ export default function DocumentTypeSelect() {
             {...params}
             variant="outlined"
             label="Select Document type"
-            // placeholder="Select Document type"
           />
         )}
       />
@@ -80,6 +79,7 @@ export default function DocumentTypeSelect() {
 
 const documentTypeList = [
   {
+    id: 1,
     name: "Annual Report",
     ticker: "AR",
     color: "#8E44AD",
@@ -87,6 +87,7 @@ const documentTypeList = [
     fontColor: "#4A406C",
   },
   {
+    id: 2,
     name: "ConCall Transcript",
     ticker: "CT",
     color: "#F39C12",
@@ -94,6 +95,7 @@ const documentTypeList = [
     fontColor: "#685B3D",
   },
   {
+    id: 3,
     name: "Earning Release",
     ticker: "ER",
     color: "#2ECC71",
@@ -101,6 +103,7 @@ const documentTypeList = [
     fontColor: "#2D695A",
   },
   {
+    id: 4,
     name: "Investor Presentation",
     ticker: "IP",
     color: "#E91E63",
@@ -108,6 +111,7 @@ const documentTypeList = [
     fontColor: "#653556",
   },
   {
+    id: 5,
     name: "Brokerage Report",
     ticker: "BR",
     color: "#6893E6",
@@ -115,6 +119,7 @@ const documentTypeList = [
     fontColor: "#3E587D",
   },
   {
+    id: 6,
     name: "Exchange Filling",
     ticker: "EF",
     color: "#E66868",
@@ -122,6 +127,7 @@ const documentTypeList = [
     fontColor: "#644B57",
   },
   {
+    id: 7,
     name: "Others",
     ticker: "OT",
     color: "#3FE3ED",

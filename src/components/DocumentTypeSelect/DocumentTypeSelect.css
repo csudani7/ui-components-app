@@ -9,10 +9,10 @@
 }
 .PrivateNotchedOutline-root-1 .MuiOutlinedInput-notchedOutline {
   border-radius: 4px !important;
-  /* border-color: #969fa8 !important; */
 }
 .MuiOutlinedInput-notchedOutline:hover {
-  border: 1px solid #4e4f50 !important;
+  border: 0.0625em solid #969fa8 !important;
+  box-shadow: 0 0 0 2px rgba(150, 159, 168, 0.2) !important;
 }
 
 .MuiAutocomplete-option[data-focus="true"] {
@@ -31,4 +31,8 @@
 .MuiAutocomplete-paper .MuiAutocomplete-listbox,
 .MuiAutocomplete-listbox {
   overflow-x: hidden !important;
+}
+.MuiChip-label {
+  padding-left: 8px !important;
+  padding-right: 8px !important;
 }

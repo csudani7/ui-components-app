@@ -4,6 +4,10 @@
 .PrivateNotchedOutline-legendLabelled-3 {
   display: none !important;
 }
+/* Placeholder of document type & Company menu */
+.MuiFormLabel-root {
+  color: #cbcbcb !important;
+}
 .MuiFormLabel-root.Mui-focused,
 .MuiInputLabel-outlined.MuiInputLabel-shrink {
   display: none !important;
@@ -24,8 +28,8 @@
 }
 
 .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
-  /* border-color: #d9d9d9 !important ; */
-  border: solid 1px #888 !important;
+  border: solid 0.0625em #cbcbcb !important;
+  box-shadow: 0 0 0 2px rgba(150, 159, 168, 0.2) !important;
 }
 
 #SelectCompanyBox .MuiAutocomplete-option[data-focus="true"] {
@@ -75,7 +79,7 @@
 .clear-all {
   display: inline;
   margin-left: 8px;
-  color: #1A7CBE;
+  color: #1a7cbe;
   font-weight: 400;
   cursor: pointer;
 }

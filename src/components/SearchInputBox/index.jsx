@@ -122,7 +122,7 @@ export default function SearchInputBox() {
                 checked={value === "All"}
               >
                 All Word
-                <div>
+                <div style={{ paddingTop: "3px", paddingBottom: "3px" }}>
                   <span style={{ fontSize: "12px" }}>Within</span>{" "}
                   <InputNumber
                     min={1}
@@ -149,8 +149,8 @@ export default function SearchInputBox() {
               <hr />
               <Checkbox
                 style={{ padding: "2px" }}
-                value="Synonyms"
-                checked={value === "Synonyms"}
+                // value="Synonyms"
+                // checked={value === "Synonyms"}
               >
                 Use Synonyms
               </Checkbox>
@@ -187,6 +187,7 @@ export default function SearchInputBox() {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
+                    cursor: "pointer",
                   }}
                 >
                   <SearchOutlinedIcon />

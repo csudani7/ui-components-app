@@ -32,14 +32,17 @@ hr {
 }
 .ant-picker {
   border-radius: 4px !important;
-  border: 1px solid #969fa8 !important;
+  border: 1px solid #cbcbcb !important;
 }
 .ant-picker:hover {
-  border: 1px solid #4e4f50 !important;
+  border: 1px solid #cbcbcb !important;
 }
 
+.ant-picker-input > input {
+  color: #969FA8 !important;
+}
 .ant-picker-input > input::placeholder {
-  color: #666666 !important;
+  color: #cbcbcb !important;
 }
 .home-button {
   height: 40px;
@@ -51,4 +54,10 @@ hr {
 }
 .homeIcon:hover > path {
   fill: white;
+}
+.ant-picker-focused {
+  box-shadow: 0 0 0 2px rgba(150, 159, 168, 0.2) !important;
+  border-color: #cbcbcb !important;
+  border-right-width: 1px !important;
+  outline: 0;
 }

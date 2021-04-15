@@ -72,7 +72,7 @@ export default function SelectCompanyBox() {
             ? option.DisplayName
             : option.CompanyName
         }
-        onInputChange={(event, newInputValue) => {
+        onInputChange={(_event, newInputValue) => {
           setEnteredInputValue(newInputValue);
         }}
         popupIcon={<ExpandMoreIcon />}
@@ -80,7 +80,7 @@ export default function SelectCompanyBox() {
           <TextField
             {...params}
             id="outlined-basic"
-            label="Add companies"
+            label="Add Companies"
             variant="outlined"
           />
         )}
