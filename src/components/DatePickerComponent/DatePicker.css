@@ -19,13 +19,11 @@ hr {
 .ant-dropdown-trigger {
   padding: 7px;
   position: absolute;
-  right: 168px;
+  right: 215px;
   top: 3px;
 }
 .root-date-picker {
   display: flex;
-  align-items: end;
-  justify-content: flex-end;
 }
 .root-date-picker button {
   margin-left: 20px;
@@ -47,7 +45,8 @@ hr {
 .home-button {
   height: 40px;
   color: #fff !important;
-  padding-left: 80px;
+  position: absolute;
+  right: 0px;
 }
 .homeIcon:hover {
   background-color: #1a7cbe;

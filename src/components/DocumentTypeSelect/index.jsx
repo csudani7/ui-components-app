@@ -12,20 +12,30 @@ const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
 export default function DocumentTypeSelect() {
-  const handleDelete = (e) => {
-    console.log(e, "e");
+  const [chipsData, setChipsDate] = React.useState([]);
+  const [optionsData, setOptionsData] = React.useState(documentTypeList);
+
+  const handleChange = (e, newValue) => {
+    setChipsDate(newValue);
+  };
+
+  const handleDelete = (chipToDelete) => () => {
+    setChipsDate((tags) => tags.filter((chip) => chip.id !== chipToDelete.id));
+    const newOptions = optionsData.map((option) => option);
+    setOptionsData(newOptions);
   };
 
   return (
     <div style={{ paddingTop: "6px" }}>
       <Autocomplete
-        multiple
         id="DocumentTypeSelect"
-        options={documentTypeList}
+        multiple
         disableCloseOnSelect
-        getOptionLabel={(option) => option.ticker}
-        dropdown
         disableClearable /* this is use for clear all button */
+        value={chipsData}
+        options={optionsData}
+        getOptionLabel={(option) => option.ticker}
+        onChange={(e, newValue) => handleChange(e, newValue)}
         renderOption={(option, { selected }) => (
           <>
             <div style={{ width: "100%" }}>
@@ -55,7 +65,7 @@ export default function DocumentTypeSelect() {
                 height: "27px",
                 overflow: "hidden",
               }}
-              onDelete={() => handleDelete(option)}
+              onDelete={handleDelete(option)}
               deleteIcon={
                 <CloseIcon
                   style={{ height: 14, width: 14, color: option.fontColor }}
@@ -64,7 +74,7 @@ export default function DocumentTypeSelect() {
             />
           ))
         }
-        style={{ width: 480 }}
+        style={{ width: 430 }}
         renderInput={(params) => (
           <TextField
             {...params}

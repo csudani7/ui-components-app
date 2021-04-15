@@ -146,6 +146,9 @@ hr {
   padding-top: 0px !important;
   padding-bottom: 0px !important;
 }
+.ant-radio-wrapper:hover .ant-radio,
+.ant-radio:hover .ant-radio-inner,
+.ant-radio-input:focus + .ant-radio-inner,
 .ant-radio-checked .ant-radio-inner {
   border-color: #969fa8 !important;
 }
